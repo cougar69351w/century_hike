@@ -1,4 +1,4 @@
-resource "aws_instance" "web" {
+resource "aws_instance" "century-hike-web" {
   ami           = "ami-4a787a2a"
   instance_type = "t2.micro"
   key_name = "josh-home"
@@ -6,6 +6,6 @@ resource "aws_instance" "web" {
     "main-security-group",
   ]
   tags {
-    Name = "Test"
+    Name = "century-hike-web"
   }
 }
