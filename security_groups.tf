@@ -59,18 +59,4 @@ resource "aws_security_group" "elb-web-security-group" {
     protocol        = "-1"
     cidr_blocks     = ["0.0.0.0/0"]
   }
-
-  ingress {
-    from_port   = 2222
-    to_port     = 2222
-    protocol    = "tcp"
-    cidr_blocks = ["47.41.46.230/32"]
-  }
-
-  ingress {
-    from_port   = 2222
-    to_port     = 2222
-    protocol    = "tcp"
-    cidr_blocks = ["168.161.192.15/32"]
-  }
 }
