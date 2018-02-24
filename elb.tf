@@ -1,13 +1,20 @@
 resource "aws_elb" "century-hike-prod-web" {
   name               = "century-hike-prod-web"
-  availability_zones = ["us-west-1a", "us-west-1b"]
-  security_groups = ["elb-web-security-group"]
+  security_groups = ["${aws_security_group.elb-web-security-group.id}"]
+  subnets = ["${aws_subnet.public-subnet-us-west-1a.id}"]
 
   listener {
     instance_port     = 80
     instance_protocol = "http"
     lb_port           = 80
     lb_protocol       = "http"
+  }
+
+  listener {
+    instance_port     = 22
+    instance_protocol = "tcp"
+    lb_port           = 2222
+    lb_protocol       = "tcp"
   }
 
   health_check {
