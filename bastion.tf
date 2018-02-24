@@ -1,7 +1,7 @@
 resource "aws_instance" "century-hike-bastion" {
   ami           = "ami-4a787a2a"
   instance_type = "t2.micro"
-  key_name = "josh-home"
+  key_name = "century-hike-prod"
   subnet_id = "${aws_subnet.public-subnet-us-west-1a.id}"
   security_groups = ["${aws_security_group.bastion-security-group.id}"]
   tags {
@@ -26,7 +26,7 @@ resource "aws_security_group" "bastion-security-group" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["47.41.46.230/32"]
+    cidr_blocks = ["47.41.249.166/32"]
   }
 
   ingress {
