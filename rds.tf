@@ -1,3 +1,4 @@
+variable "RDS_PROD_USER" {}
 variable "RDS_PROD_PASS" {}
 
 ### create db subnet group ###
@@ -23,8 +24,8 @@ resource "aws_db_instance" "century-hike-prod-rds" {
   multi_az             = "false"
   db_subnet_group_name = "${aws_db_subnet_group.century-hike-prod-subnet-group.id}"
   vpc_security_group_ids = ["${aws_security_group.rds-web-security-group.id}"]
-  username             = "chhiker"
-  password             = "{var.RDS_PROD_PASS}"
+  username             = "${var.RDS_PROD_USER}"
+  password             = "${var.RDS_PROD_PASS}"
   name                 = "wordpress"
   skip_final_snapshot  = "true"
 }
