@@ -32,6 +32,17 @@ resource "aws_subnet" "private-subnet-us-west-1a" {
   }
 }
 
+### secondary private subnet for rds. currently not used ###
+
+resource "aws_subnet" "private-subnet-us-west-1b" {
+  vpc_id                  = "${aws_vpc.century-hike-vpc.id}"
+  cidr_block              = "10.0.3.0/24"
+  availability_zone = "us-west-1b"
+  tags = {
+        Name =  "private subnet us-west-1b"
+  }
+}
+
 ## main internet gateway ##
 
 resource "aws_internet_gateway" "century-hike-gateway" {
