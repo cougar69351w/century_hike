@@ -29,3 +29,7 @@ resource "aws_db_instance" "century-hike-prod-rds" {
   name                 = "wordpress"
   skip_final_snapshot  = "true"
 }
+
+output "rds_endpoint" {
+  value = "${aws_db_instance.century-hike-prod-rds.endpoint}"
+}
