@@ -1,0 +1,6 @@
+resource "aws_efs_file_system" "century-hike-efs-prod-web" {
+  creation_token = "century-hike-efs-prod-web"
+  tags {
+    Name = "century-hike-efs-prod-web"
+  }
+}

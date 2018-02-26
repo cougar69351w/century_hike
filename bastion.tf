@@ -1,6 +1,6 @@
 resource "aws_instance" "century-hike-bastion" {
   ami           = "ami-4a787a2a"
-  instance_type = "t2.micro"
+  instance_type = "t2.nano"
   key_name = "century-hike-prod"
   subnet_id = "${aws_subnet.public-subnet-us-west-1a.id}"
   security_groups = ["${aws_security_group.bastion-security-group.id}"]
