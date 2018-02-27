@@ -28,6 +28,7 @@ resource "aws_db_instance" "century-hike-prod-rds" {
   password             = "${var.RDS_PROD_PASS}"
   name                 = "wordpress"
   skip_final_snapshot  = "true"
+  snapshot_identifier  = "wordpress-snap1"
 }
 
 output "rds_endpoint" {

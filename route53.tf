@@ -6,5 +6,6 @@ resource "aws_route53_record" "century-hike-prod-www" {
  alias {
     name                   = "${aws_elb.century-hike-prod-web.dns_name}"
     zone_id                = "${aws_elb.century-hike-prod-web.zone_id}"
+    evaluate_target_health = "false"
   }
 }
