@@ -11,10 +11,11 @@ resource "aws_elb" "century-hike-prod-web" {
   }
 
   listener {
-    instance_port     = 22
-    instance_protocol = "tcp"
-    lb_port           = 2222
-    lb_protocol       = "tcp"
+    instance_port      = 80
+    instance_protocol  = "http"
+    lb_port            = 443
+    lb_protocol        = "https"
+    ssl_certificate_id = "arn:aws:acm:us-west-1:800539711012:certificate/e7a87484-5f79-4beb-8f89-19605318700e"
   }
 
   health_check {

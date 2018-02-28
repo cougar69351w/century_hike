@@ -1,5 +1,5 @@
 resource "aws_instance" "century-hike-prod-web" {
-  ami           = "ami-8f040fef"
+  ami           = "ami-adf8f3cd"
   instance_type = "t2.micro"
   key_name = "century-hike-prod"
   subnet_id = "${aws_subnet.private-subnet-us-west-1a.id}"
