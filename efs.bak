@@ -1,6 +1,11 @@
-resource "aws_efs_file_system" "century-hike-efs-prod-web" {
-  creation_token = "century-hike-efs-prod-web"
+resource "aws_efs_file_system" "century-hike-prod-web-efs" {
+  creation_token = "century-hike-prod-web-efs"
   tags {
-    Name = "century-hike-efs-prod-web"
+    Name = "century-hike-prod-web-efs"
   }
+}
+
+resource "aws_efs_mount_target" "century-hike-prod-web-efs-mount" {
+  file_system_id = "${aws_efs_file_system.century-hike-prod-web-efs.id}"
+  subnet_id      = "${aws_subnet.private-subnet-us-west-1a.id}"
 }
